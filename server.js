@@ -78,5 +78,5 @@ app.use(errorHandler);
 app.get("/", (req, res) => res.send("API Running"));
 
 app.listen(PORT, () =>
-  console.log(`>>> yelpCamp Server started on port ${PORT}`.brightBlue.bold)
+  console.log(`>>> yelp Server started on port ${PORT}`.brightBlue.bold)
 );

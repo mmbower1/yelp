@@ -19,15 +19,14 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Fragment>
-          <Switch>
+        <Switch>
+          <Fragment>
             <div className="app">
               <Route exact path="/" component={Homepage} />
               <Route exact path="/campgrounds" component={Campgrounds} />
-              <div>hello</div>
             </div>
-          </Switch>
-        </Fragment>
+          </Fragment>
+        </Switch>
       </Router>
     </Provider>
   );
