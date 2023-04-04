@@ -28,8 +28,8 @@ router.get("/", async (req, res) => {
 // @access   Public
 router.get("/:id", async (req, res) => {
   try {
-    const campgrounds = await Campground.findById(req.params.id);
-    res.json(campgrounds);
+    const campground = await Campground.findById(req.params.id);
+    res.json(campground);
   } catch (err) {
     res.status(500).send(err + " Server error campground");
   }

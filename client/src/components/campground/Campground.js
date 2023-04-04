@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
-const Campground = ({ title, price, description, location }) => {
+const Campground = ({ id, title, price, description, location }) => {
   return (
-    <div>
-      <li>
-        {" "}
-        <span>{title}</span>
-        <span>{price}</span>
-        <span>{description}</span>
-        <span>{location}</span>
-      </li>
-    </div>
+    <Fragment>
+      <Link to={`/campgrounds/${id}`}>
+        <ul>
+          {" "}
+          <span>{title}</span>
+          <span>{price}</span>
+          <span>{description}</span>
+          <span>{location}</span>
+        </ul>
+      </Link>
+    </Fragment>
   );
 };
 
