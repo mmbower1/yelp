@@ -1,4 +1,4 @@
-import React, { Fragment, Lazy, suspense } from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // styles
@@ -7,7 +7,7 @@ import "./scss/App.scss";
 // containers
 import Homepage from "./containers/homepage/Homepage";
 import Campgrounds from "./containers/campgrounds/Campgrounds";
-import CampgroundID from "./containers/campgrounds/CampgroundID";
+import CampgroundID from "./containers/campgroundID/CampgroundID";
 
 // redux
 import {

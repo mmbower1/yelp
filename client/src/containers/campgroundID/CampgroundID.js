@@ -9,7 +9,6 @@ const CampgroundID = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const c = campground.map((i) => i.id === match.params.id);
-
   console.log(c);
 
   useEffect(() => {
