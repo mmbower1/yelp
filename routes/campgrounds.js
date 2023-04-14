@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     const campgrounds = await Campground.find({});
     res.json(campgrounds);
   } catch (err) {
-    res.status(500).send(err + " Server error campground");
+    res.status(500).send(err + " Server error campground get");
   }
 });
 
@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
     const campground = await Campground.findById(req.params.id);
     res.json(campground);
   } catch (err) {
-    res.status(500).send(err + " Server error campground");
+    res.status(500).send(err + " Server error campground get ID");
   }
 });
 
@@ -45,7 +45,40 @@ router.post("/", async (req, res) => {
     res.status(201).json({ data: campground });
     // res.redirect(`/campgrounds/${campground._id}`);
   } catch (err) {
-    res.status(500).send(err + " Server error campground");
+    res.status(500).send(err + " Server error campground post");
+  }
+});
+
+// @route    PUT /campgrounds/:id/edit
+// @desc     Edit a campground
+// @access   Public
+router.put("/:id/edit", async (req, res) => {
+  try {
+    const campground = await Campground.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    if (!campground) return res.status(400).json({ success: false });
+    res.status(200).json({ success: true, data: campground });
+  } catch (err) {
+    res.status(400).send(err + " Server error campground edit");
+  }
+});
+
+// @route    DELETE /campgrounds/:id
+// @desc     Delete a campground
+// @access   Public
+router.delete("/:id", async (req, res) => {
+  try {
+    const campground = await Campground.findByIdAndDelete(req.params.id);
+    if (!campground) return res.status(400).json({ success: false });
+    res.status(200).json({ success: true, data: {} });
+  } catch (err) {
+    res.status(500).send(err + " Server error campground delete");
   }
 });
 

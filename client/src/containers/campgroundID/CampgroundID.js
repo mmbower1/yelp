@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Campground from "../../components/campground/Campground";
 import Spinner from "../../components/spinner/Spinner";
 
-const CampgroundID = ({ match }) => {
+const CampgroundID = ({ id, match }) => {
   const [campground, setCampground] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,6 +26,12 @@ const CampgroundID = ({ match }) => {
     <Fragment>
       <Link to="/">Go back</Link>
       {isLoading ? <Spinner /> : <Campground />}
+      <Link to={`/campgrounds/${id}/edit`}>
+        <button>Edit</button>
+      </Link>
+      <Link to={`/campgrounds`}>
+        <button>Delete</button>
+      </Link>
     </Fragment>
   );
 };

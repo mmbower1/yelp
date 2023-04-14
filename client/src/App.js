@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // styles
 import "./App.css";
 import "./scss/App.scss";
+// components
+import Footer from "./components/footer/Footer";
 // containers
 import Homepage from "./containers/homepage/Homepage";
 import Campgrounds from "./containers/campgrounds/Campgrounds";
@@ -29,6 +31,7 @@ function App() {
             </div>
           </Fragment>
         </Switch>
+        <Footer />
       </Router>
     </Provider>
   );
